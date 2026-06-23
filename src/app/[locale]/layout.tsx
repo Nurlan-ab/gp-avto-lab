@@ -35,10 +35,10 @@ export default async function LocaleLayout({
   return (
     <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
       <NextIntlClientProvider messages={messages}>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <Toaster />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster />
       </NextIntlClientProvider>
     </ThemeProvider>
   );
