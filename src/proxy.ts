@@ -4,5 +4,5 @@ import { routing } from "@/lib/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/", "/(ky|ru|en)/:path*"],
+  matcher: ["/", "/(kg|ru|en)/:path*"],
 };

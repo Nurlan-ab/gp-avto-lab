@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const locales = [
-  { code: "ky", label: "KG", native: "Кыргызча" },
+  { code: "kg", label: "KG", native: "Кыргызча" },
   { code: "ru", label: "RU", native: "Русский" },
   { code: "en", label: "EN", native: "English" },
 ] as const;
