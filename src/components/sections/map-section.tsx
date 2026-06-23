@@ -33,8 +33,8 @@ function Map2GIS() {
       .then((api) => {
         if (cancelled || !containerRef.current) return;
         map = new api.Map(containerRef.current, {
-          center: [74.5, 41.5],
-          zoom: 7,
+          center: [74.5698, 42.8746],
+          zoom: 12,
           key: MAP_KEY,
           enableTrackResize: true,
         });
