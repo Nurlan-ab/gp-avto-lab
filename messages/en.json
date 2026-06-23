@@ -1,0 +1,96 @@
+{
+  "common": {
+    "siteTitle": "KR Testing Auto Laboratories",
+    "siteDescription": "Official website of the state testing auto laboratories of the Kyrgyz Republic",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "documents": "Regulatory Documents",
+    "laboratories": "Laboratories",
+    "news": "News",
+    "faq": "FAQ",
+    "feedback": "Contact Us",
+    "readMore": "Read more",
+    "download": "Download",
+    "search": "Search",
+    "contactPhone": "Phone",
+    "contactEmail": "E-mail",
+    "workingHours": "Working hours",
+    "mondayFriday": "Monday – Friday",
+    "lunch": "Lunch break",
+    "weekend": "Saturday, Sunday – closed",
+    "address": "Address",
+    "allRightsReserved": "All rights reserved",
+    "languageKyrgyz": "Кыргызча",
+    "languageRussian": "Русский",
+    "languageEnglish": "English",
+    "more": "More"
+  },
+  "hero": {
+    "title": "State Testing Auto Laboratories",
+    "subtitle": "Ensuring road safety through objective assessment of vehicles",
+    "cta": "Learn about services"
+  },
+  "home": {
+    "services": {
+      "title": "Main Services",
+      "subtitle": "Laboratories provide vehicle conformity assessment services in accordance with TR CU 018/2011 requirements",
+      "cards": {
+        "sbkts": {
+          "title": "SBKTS Issuance",
+          "description": "Issuance of vehicle safety certificate (SBKTS)"
+        },
+        "expertise": {
+          "title": "Technical Expertise",
+          "description": "Identification and assessment of vehicle technical condition"
+        },
+        "testing": {
+          "title": "Vehicle Testing",
+          "description": "Brake system, steering, lighting and environmental performance testing"
+        },
+        "consulting": {
+          "title": "Consulting",
+          "description": "Information support on conformity assessment matters"
+        }
+      }
+    },
+    "news": {
+      "title": "News and Announcements",
+      "subtitle": "Latest information on testing laboratory activities"
+    },
+    "documents": {
+      "title": "Regulatory Documents",
+      "subtitle": "Legislative framework in the field of vehicle safety"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "subtitle": "Get in touch with us",
+      "callCenter": "Call center"
+    },
+    "pricing": {
+      "title": "Service Pricing",
+      "subtitle": "Price list for testing auto laboratory services"
+    },
+    "map": {
+      "title": "Laboratory Map",
+      "subtitle": "Network of testing auto laboratories in the Kyrgyz Republic"
+    }
+  },
+  "about": {
+    "title": "About the Enterprise",
+    "history": "History",
+    "tasks": "Main Objectives and Functions",
+    "structure": "Organizational Structure",
+    "management": "Management",
+    "details": "Requisites",
+    "director": "Director",
+    "deputyDirector": "Deputy Director"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "documents": "Documents",
+    "schedule": "Mon – Fri: 09:00–18:00",
+    "lunch": "Break: 12:30–13:30"
+  }
+}
