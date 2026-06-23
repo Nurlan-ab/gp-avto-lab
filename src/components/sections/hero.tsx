@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 
 const stats = [
   { icon: MapPin, value: "5", labelKey: "stats.labs" },
-  { icon: Building2, value: "10+", labelKey: "stats.years" },
-  { icon: CheckCircle, value: "5000+", labelKey: "stats.issued" },
+  { icon: Building2, value: "10 +", labelKey: "stats.years" },
+  { icon: CheckCircle, value: "5000 +", labelKey: "stats.issued" },
 ];
 
 export function HeroSection() {
@@ -76,7 +76,7 @@ export function HeroSection() {
       {/* Stats bar */}
       <div className="relative border-t border-white/10 bg-white/[0.03] backdrop-blur">
         <Container>
-          <div className="grid grid-cols-3 divide-x divide-white/10 py-8">
+          <div className="grid grid-cols-3 divide-x divide-white/10 py-8 mb-3">
             {stats.map(({ icon: Icon, value, labelKey }, i) => {
               const label = t(labelKey as Parameters<typeof t>[0]);
               return (
@@ -87,9 +87,9 @@ export function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                   className="flex flex-col items-center gap-2 px-4"
                 >
-                  <Icon className="h-5 w-5 text-blue-400/60" />
+                  <Icon className="h-8 w-8 text-blue-400/60" />
                   <span className="text-3xl sm:text-4xl font-bold tracking-tight">{value}</span>
-                  <span className="text-sm text-blue-200/60">{label}</span>
+                  <span className="text-base text-blue-200/60">{label}</span>
                 </motion.div>
               );
             })}

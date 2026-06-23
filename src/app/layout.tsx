@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Испытательные автолаборатории КР",
+  title: "gp-avto-lab",
   description:
     "Официальный сайт государственных испытательных автолабораторий Кыргызской Республики",
 };
