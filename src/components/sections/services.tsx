@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { FileCheck, ClipboardCheck, Wrench, MessageCircle, ArrowRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/lib/routing";
 import { cn } from "@/lib/utils";
@@ -19,14 +18,22 @@ export function ServicesSection() {
   return (
     <Section>
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-blue-600 mb-4">
+            Направления работы
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             {t("title")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t("subtitle")}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cardKeys.map((key, i) => {
@@ -35,37 +42,28 @@ export function ServicesSection() {
             return (
               <motion.div
                 key={key}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -6 }}
               >
-                <Card className="h-full group hover:shadow-lg transition-shadow border-muted/60">
-                  <CardHeader className="pb-3">
-                    <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950 flex items-center justify-center mb-4 group-hover:bg-blue-100 dark:group-hover:bg-blue-900 transition-colors">
-                      <Icon className="h-6 w-6 text-blue-700 dark:text-blue-400" />
-                    </div>
-                    <CardTitle className="text-lg">{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm leading-relaxed">
-                      {card.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <div className="group relative h-full p-8 rounded-2xl bg-white border border-border/60 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                    <Icon className="h-7 w-7 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 tracking-tight">{card.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {card.description}
+                  </p>
+                  <div className="mt-6 flex items-center text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+                    Подробнее
+                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
               </motion.div>
             );
           })}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link
-            href="/services"
-            className={cn(buttonVariants({ variant: "outline" }))}
-          >
-            {t("title")}
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </Container>
     </Section>

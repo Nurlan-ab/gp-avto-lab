@@ -29,7 +29,12 @@
   "hero": {
     "title": "State Testing Auto Laboratories",
     "subtitle": "Ensuring road safety through objective assessment of vehicles",
-    "cta": "Learn about services"
+    "cta": "Learn about services",
+    "stats": {
+      "labs": "laboratories in KR",
+      "years": "years of expertise",
+      "issued": "SBKTS issued"
+    }
   },
   "home": {
     "services": {
