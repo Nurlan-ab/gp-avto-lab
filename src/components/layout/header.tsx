@@ -34,7 +34,7 @@ export function Header() {
   const linkClass = "inline-flex h-9 items-center justify-center rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b bg-white">
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 font-bold text-lg text-primary">
           <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue-600">
