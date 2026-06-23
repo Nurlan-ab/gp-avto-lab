@@ -99,7 +99,7 @@ export function HeroSection() {
 
       {/* Wave */}
       <div className="absolute bottom-0 left-0 right-0 translate-y-px">
-        <svg viewBox="0 0 1440 60" fill="none" className="w-full h-12 sm:h-16">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-12 sm:h-16">
           <path d="M0 30C240 60 480 0 720 30C960 60 1200 0 1440 30V60H0V30Z"
             className="fill-white dark:fill-background" />
         </svg>
