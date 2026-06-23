@@ -9,7 +9,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -32,6 +31,8 @@ export function Header() {
     { href: "/feedback", label: t("feedback") },
   ];
 
+  const linkClass = "inline-flex h-9 items-center justify-center rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary";
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
@@ -43,43 +44,37 @@ export function Header() {
           <span className="sm:hidden font-semibold">АвтоЛаб</span>
         </Link>
 
-        <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList className="gap-0.5">
-            {navItems.slice(0, 6).map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href={item.href}
-                    className="inline-flex h-9 items-center justify-center rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="h-9 px-3 py-2 text-sm font-medium rounded-lg">
-                {t("more") || "Ещё"}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-48 gap-1 p-2">
-                  {navItems.slice(6).map((item) => (
-                    <li key={item.href}>
-                      <NavigationMenuLink asChild>
+        {/* Desktop nav — plain links, no NavigationMenuLink */}
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {navItems.slice(0, 6).map((item) => (
+            <Link key={item.href} href={item.href} className={linkClass}>
+              {item.label}
+            </Link>
+          ))}
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="h-9 px-3 py-2 text-sm font-medium rounded-lg">
+                  {t("more") || "Ещё"}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-48 gap-1 p-2">
+                    {navItems.slice(6).map((item) => (
+                      <li key={item.href}>
                         <Link
                           href={item.href}
                           className="block select-none rounded-md p-2 text-sm leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary focus:bg-muted"
                         >
                           {item.label}
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </nav>
 
         <div className="flex items-center gap-1">
           <LanguageSwitcher />
