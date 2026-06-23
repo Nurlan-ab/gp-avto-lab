@@ -1,6 +1,6 @@
 import config from "@payload-config";
 import { REST_DELETE, REST_GET, REST_PATCH, REST_POST } from "@payloadcms/next/routes";
-import { importMap } from "../admin/importMap.js";
+import { importMap } from "../../importMap.js";
 
 export const GET = REST_GET(config);
 export const POST = REST_POST(config);
