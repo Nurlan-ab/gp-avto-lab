@@ -7,9 +7,9 @@ import { Container } from "@/components/layout/container";
 import { motion } from "framer-motion";
 
 const stats = [
-  { icon: MapPin, value: "5", labelKey: "hero.stats.labs" },
-  { icon: Building2, value: "10+", labelKey: "hero.stats.years" },
-  { icon: CheckCircle, value: "5000+", labelKey: "hero.stats.issued" },
+  { icon: MapPin, value: "5", labelKey: "stats.labs" },
+  { icon: Building2, value: "10+", labelKey: "stats.years" },
+  { icon: CheckCircle, value: "5000+", labelKey: "stats.issued" },
 ];
 
 export function HeroSection() {
