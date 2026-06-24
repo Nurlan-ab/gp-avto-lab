@@ -1,5 +1,5 @@
 import { getLocale } from "next-intl/server";
-import { getNews, getDocuments, getServices, getLabs, getFaq } from "@/lib/data";
+import { getNews, getDocuments, getServices, getLabs, getFaq, getPage } from "@/lib/data";
 import { HeroSection } from "@/components/sections/hero";
 import { ServicesSection } from "@/components/sections/services";
 import { NewsSection } from "@/components/sections/news";

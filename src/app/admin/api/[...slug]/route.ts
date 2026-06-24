@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { compare } from "bcryptjs";
 
 const ADMIN_SECRET = process.env.PAYLOAD_SECRET || "gp-avto-lab-admin-2026";
-const TABLES = ["news", "documents", "services", "faq", "feedback", "laboratories"] as const;
+const TABLES = ["news", "documents", "services", "faq", "feedback", "laboratories", "pages"] as const;
 
 function json(data: unknown, status = 200) {
   return NextResponse.json(data, { status });

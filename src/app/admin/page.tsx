@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import {
   Shield, LayoutDashboard, Newspaper, FileText, Wrench,
   HelpCircle, MessageSquare, LogOut, Activity, Users,
-  ChevronRight, Plus, Trash2, Pencil, X, MapPin, Save
+  ChevronRight, Plus, Trash2, Pencil, X, MapPin, Save, File
 } from "lucide-react";
 
 const menuItems = [
@@ -16,6 +16,7 @@ const menuItems = [
   { slug: "faq", label: "FAQ", icon: HelpCircle },
   { slug: "feedback", label: "Обращения", icon: MessageSquare },
   { slug: "laboratories", label: "Лаборатории", icon: MapPin },
+  { slug: "pages", label: "Страницы", icon: File },
 ] as const;
 
 type Row = Record<string, unknown>;
@@ -70,6 +71,15 @@ const COLLECTION_FIELDS: Record<string, { key: string; label: string; type?: str
     { key: "coords", label: "Координаты (lat,lng)" },
     { key: "sort_order", label: "Порядок" },
   ],
+  pages: [
+    { key: "slug", label: "Slug (about, contacts...)" },
+    { key: "title_ru", label: "Заголовок (RU)" },
+    { key: "title_kg", label: "Заголовок (KG)" },
+    { key: "title_en", label: "Заголовок (EN)" },
+    { key: "content_ru", label: "Содержание (RU)", type: "textarea" },
+    { key: "content_kg", label: "Содержание (KG)", type: "textarea" },
+    { key: "content_en", label: "Содержание (EN)", type: "textarea" },
+  ],
 };
 
 const TABLE_HEADERS: Record<string, string[]> = {
@@ -79,6 +89,7 @@ const TABLE_HEADERS: Record<string, string[]> = {
   faq: ["Вопрос"],
   feedback: ["Имя", "Email", "Статус"],
   laboratories: ["Название", "Адрес"],
+  pages: ["Slug", "Заголовок"],
 };
 
 const TABLE_CELLS: Record<string, (row: Row) => string[]> = {
@@ -88,6 +99,7 @@ const TABLE_CELLS: Record<string, (row: Row) => string[]> = {
   faq: (r) => [r.question_ru as string],
   feedback: (r) => [r.name as string, r.email as string, r.status as string],
   laboratories: (r) => [r.name as string, r.address as string],
+  pages: (r) => [r.slug as string, r.title_ru as string],
 };
 
 export default function AdminDashboard() {
@@ -103,7 +115,7 @@ export default function AdminDashboard() {
 
   const loadStats = useCallback(async () => {
     const counts: Record<string, number> = {};
-    const tables = ["news", "documents", "services", "faq", "feedback", "laboratories"];
+    const tables = ["news", "documents", "services", "faq", "feedback", "laboratories", "pages"];
     await Promise.all(tables.map(async (t) => {
       const r = await fetch(`/admin/api/${t}`);
       if (r.ok) { const d = await r.json(); counts[t] = d.length; }

@@ -102,3 +102,22 @@ export async function getFaq(locale: string): Promise<FaqItem[]> {
   );
   return rows as unknown as FaqItem[];
 }
+
+export type PageData = {
+  id: number;
+  slug: string;
+  title: string;
+  content: string;
+};
+
+export async function getPage(slug: string, locale: string): Promise<PageData | null> {
+  await initDb();
+  const sql = getSql();
+  const titleF = localizedField("title", locale);
+  const contentF = localizedField("content", locale);
+  const [row] = await sql.unsafe(
+    `SELECT id, slug, ${titleF} as title, ${contentF} as content FROM pages WHERE slug = $1`,
+    [slug]
+  );
+  return (row as unknown as PageData) || null;
+}

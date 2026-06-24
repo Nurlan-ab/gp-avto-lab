@@ -99,6 +99,19 @@ export async function initDb() {
       created_at TIMESTAMP DEFAULT NOW()
     );
 
+    CREATE TABLE IF NOT EXISTS pages (
+      id SERIAL PRIMARY KEY,
+      slug TEXT UNIQUE NOT NULL,
+      title_ru TEXT NOT NULL,
+      title_kg TEXT,
+      title_en TEXT,
+      content_ru TEXT DEFAULT '',
+      content_kg TEXT DEFAULT '',
+      content_en TEXT DEFAULT '',
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
+    );
+
     INSERT INTO users (username, password_hash, role)
     VALUES ('admin', '$2b$10$JRZ24mHjf79jjnwdplybv.gYDRzlWbixfkQzRxnEg3noOkSkXc8Sy', 'admin')
     ON CONFLICT (username) DO NOTHING;
