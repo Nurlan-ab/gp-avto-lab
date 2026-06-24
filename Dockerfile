@@ -42,4 +42,4 @@ COPY --from=builder /app/messages ./messages
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "pnpm start -- -p ${PORT:-3000}"]
+CMD ["pnpm", "start"]
