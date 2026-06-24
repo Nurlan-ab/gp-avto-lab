@@ -30,7 +30,7 @@ export function Header() {
     { href: "/feedback", label: t("feedback") },
   ];
 
-  const linkClass = "inline-flex h-9 items-center justify-center rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary";
+  const linkClass = "inline-flex h-9 items-center justify-center rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted hover:text-primary";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -53,7 +53,7 @@ export function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="h-9 px-3 py-2 text-sm font-medium rounded-lg">
+                <NavigationMenuTrigger className="h-9 px-3 py-2 text-base font-medium rounded-lg">
                   {t("more") || "Ещё"}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -62,7 +62,7 @@ export function Header() {
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          className="block select-none rounded-md p-2 text-sm leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary focus:bg-muted"
+                          className="block select-none rounded-md p-2 text-base leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary focus:bg-muted"
                         >
                           {item.label}
                         </Link>
