@@ -29,20 +29,20 @@ export function LaboratoriesSection({ labs }: { labs: LabItem[] }) {
             <Card key={lab.id} className="hover:shadow-md transition-shadow">
               <CardContent className="p-5 space-y-3">
                 <div className="flex items-start justify-between">
-                  <h3 className="font-semibold">{lab.name}</h3>
-                  <Badge variant="outline" className="text-xs">#{lab.id}</Badge>
+                  <h3 className="text-lg font-semibold">{lab.name}</h3>
+                  <Badge variant="outline" className="text-sm">#{lab.id}</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground flex items-start gap-2">
+                <p className="text-base text-muted-foreground flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-blue-700" />
                   {lab.address}
                 </p>
                 {lab.phone && (
-                  <p className="text-sm text-muted-foreground flex items-center gap-2">
+                  <p className="text-base text-muted-foreground flex items-center gap-2">
                     <Phone className="h-4 w-4 shrink-0 text-blue-700" />
                     {lab.phone}
                   </p>
                 )}
-                <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <p className="text-base text-muted-foreground flex items-center gap-2">
                   <Clock className="h-4 w-4 shrink-0 text-blue-700" />
                   {lab.hours}
                 </p>

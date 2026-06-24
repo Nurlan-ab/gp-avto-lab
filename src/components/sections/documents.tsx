@@ -31,12 +31,12 @@ export function DocumentsSection({ documents }: { documents: DocumentItem[] }) {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold group-hover:text-blue-700 transition-colors truncate">{doc.title}</span>
+                  <span className="text-base font-semibold group-hover:text-blue-700 transition-colors truncate">{doc.title}</span>
                   <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">{doc.description}</p>
+                <p className="text-sm text-muted-foreground mt-1">{doc.description}</p>
                 {doc.category && (
-                  <span className="inline-block mt-2 text-[10px] uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{doc.category}</span>
+                  <span className="inline-block mt-2 text-xs uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{doc.category}</span>
                 )}
               </div>
             </div>
