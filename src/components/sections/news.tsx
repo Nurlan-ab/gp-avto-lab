@@ -27,12 +27,12 @@ export function NewsSection({ items }: { items: NewsItem[] }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {items.map((item) => (
             <div key={item.id} className="group relative p-8 rounded-2xl bg-white border border-border/60 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                 <Calendar className="h-3.5 w-3.5 text-blue-500" />
                 {new Date(item.created_at).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" })}
               </div>
-              <h3 className="text-base font-semibold mb-3 leading-snug group-hover:text-blue-700 transition-colors">{item.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.excerpt}</p>
+              <h3 className="text-lg font-semibold mb-3 leading-snug group-hover:text-blue-700 transition-colors">{item.title}</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">{item.excerpt}</p>
             </div>
           ))}
         </div>
