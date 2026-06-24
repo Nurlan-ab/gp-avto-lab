@@ -19,7 +19,7 @@ importers:
         version: 5.4.0(react-hook-form@7.80.0(react@19.2.4))
       '@payloadcms/db-sqlite':
         specifier: ^3.85.1
-        version: 3.85.1(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))
+        version: 3.85.1(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))
       '@payloadcms/next':
         specifier: ^3.85.1
         version: 3.85.1(@types/react@19.2.17)(graphql@16.14.2)(monaco-editor@0.55.1)(next@16.2.9(@babel/core@7.29.7)(babel-plugin-macros@3.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.77.4))(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
@@ -87,6 +87,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.3.1
+      '@types/better-sqlite3':
+        specifier: ^7.6.13
+        version: 7.6.13
       '@types/node':
         specifier: ^20
         version: 20.19.43
@@ -1719,6 +1722,9 @@ packages:
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
+
+  '@types/better-sqlite3@7.6.13':
+    resolution: {integrity: sha512-NMv9ASNARoKksWtsq/SHakpYAYnhBrQgGD8zkLYk/jaK8jUGn08CfEdTRgYhMypUQAfzSP8W6gNLe0q19/t4VA==}
 
   '@types/busboy@1.5.4':
     resolution: {integrity: sha512-kG7WrUuAKK0NoyxfQHsVE6j1m01s6kMma64E+OZenQABMQyTJop1DumUWcLwAQ2JzpefU7PDYoRDKl8uZosFjw==}
@@ -6188,13 +6194,13 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.6
       '@parcel/watcher-win32-x64': 2.5.6
 
-  '@payloadcms/db-sqlite@3.85.1(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))':
+  '@payloadcms/db-sqlite@3.85.1(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))':
     dependencies:
       '@libsql/client': 0.14.0
-      '@payloadcms/drizzle': 3.85.1(@libsql/client@0.14.0)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))
+      '@payloadcms/drizzle': 3.85.1(@libsql/client@0.14.0)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))
       console-table-printer: 2.12.1
       drizzle-kit: 0.31.7
-      drizzle-orm: 0.45.2(@libsql/client@0.14.0)(better-sqlite3@12.11.1)
+      drizzle-orm: 0.45.2(@libsql/client@0.14.0)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)
       payload: 3.85.1(graphql@16.14.2)(typescript@5.9.3)
       prompts: 2.4.2
       to-snake-case: 1.0.0
@@ -6232,11 +6238,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@payloadcms/drizzle@3.85.1(@libsql/client@0.14.0)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))':
+  '@payloadcms/drizzle@3.85.1(@libsql/client@0.14.0)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)(payload@3.85.1(graphql@16.14.2)(typescript@5.9.3))':
     dependencies:
       console-table-printer: 2.12.1
       dequal: 2.0.3
-      drizzle-orm: 0.45.2(@libsql/client@0.14.0)(better-sqlite3@12.11.1)
+      drizzle-orm: 0.45.2(@libsql/client@0.14.0)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)
       payload: 3.85.1(graphql@16.14.2)(typescript@5.9.3)
       prompts: 2.4.2
       to-snake-case: 1.0.0
@@ -6566,6 +6572,10 @@ snapshots:
   '@types/acorn@4.0.6':
     dependencies:
       '@types/estree': 1.0.9
+
+  '@types/better-sqlite3@7.6.13':
+    dependencies:
+      '@types/node': 20.19.43
 
   '@types/busboy@1.5.4':
     dependencies:
@@ -7320,9 +7330,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.45.2(@libsql/client@0.14.0)(better-sqlite3@12.11.1):
+  drizzle-orm@0.45.2(@libsql/client@0.14.0)(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1):
     optionalDependencies:
       '@libsql/client': 0.14.0
+      '@types/better-sqlite3': 7.6.13
       better-sqlite3: 12.11.1
 
   dunder-proto@1.0.1:

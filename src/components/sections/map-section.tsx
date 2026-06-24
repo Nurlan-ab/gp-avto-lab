@@ -26,7 +26,8 @@ function Map2GIS() {
   useEffect(() => {
     if (!MAP_KEY) return;
     let cancelled = false;
-    let map: mapgl.Map | null = null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let map: any = null;
 
     import("@2gis/mapgl")
       .then(({ load }) => load())
