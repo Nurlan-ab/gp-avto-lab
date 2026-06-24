@@ -13,7 +13,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Container } from "@/components/layout/container";
 
 export function Header() {
@@ -78,7 +77,6 @@ export function Header() {
 
         <div className="flex items-center gap-1">
           <LanguageSwitcher />
-          <ThemeToggle />
           <button className="hidden sm:inline-flex items-center justify-center h-9 w-9 rounded-lg hover:bg-muted transition-colors">
             <Search className="h-5 w-5" />
           </button>

@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "../globals.css";
@@ -33,13 +32,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-      <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Toaster />
-      </NextIntlClientProvider>
-    </ThemeProvider>
+    <NextIntlClientProvider messages={messages}>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <Toaster />
+    </NextIntlClientProvider>
   );
 }
