@@ -44,9 +44,9 @@ export function DocumentsSection({ documents }: { documents: DocumentItem[] }) {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/documents" className={cn(buttonVariants({ variant: "outline" }))}>
+          <Link href="/documents" className="group inline-flex items-center gap-2 h-12 px-8 rounded-full border-2 border-blue-200 bg-white text-blue-700 font-medium hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-blue-500/20">
             {t("title")}
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </Container>

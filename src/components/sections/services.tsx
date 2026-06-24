@@ -60,9 +60,9 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
                   <p className="text-base text-muted-foreground leading-relaxed">
                     {svc.description}
                   </p>
-                  <div className="mt-6 flex items-center text-base font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+                  <div className="mt-6 inline-flex items-center text-base font-medium text-blue-600 group-hover:text-blue-700 transition-colors cursor-pointer">
                     Подробнее
-                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </motion.div>
