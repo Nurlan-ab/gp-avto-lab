@@ -4,5 +4,6 @@ import { routing } from "@/lib/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/", "/(kg|ru|en)/:path*"],
+  // Run middleware on all paths EXCEPT admin, api, _next, static files
+  matcher: ["/((?!api|_next|admin|favicon.ico).*)"],
 };
