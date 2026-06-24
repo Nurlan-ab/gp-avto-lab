@@ -24,7 +24,12 @@
     "languageKyrgyz": "Кыргызча",
     "languageRussian": "Русский",
     "languageEnglish": "English",
-    "more": "More"
+    "more": "More",
+    "name": "Name",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending..."
   },
   "hero": {
     "title": "State Testing Auto Laboratories",
@@ -79,6 +84,16 @@
     "map": {
       "title": "Laboratory Map",
       "subtitle": "Network of testing auto laboratories in the Kyrgyz Republic"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Answers to the most common questions about procedures and services"
+    },
+    "feedback": {
+      "title": "Contact Us",
+      "subtitle": "Write to us — we'll respond shortly",
+      "success": "Message sent!",
+      "successMessage": "Thank you for reaching out. We will contact you shortly."
     }
   },
   "about": {

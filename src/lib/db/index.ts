@@ -1,31 +1,29 @@
-import Database from "better-sqlite3";
-import path from "path";
+import postgres from "postgres";
 
-const DB_PATH = path.join(process.cwd(), "data.db");
+let sql: ReturnType<typeof postgres> | null = null;
 
-let db: Database.Database | null = null;
-
-export function getDb(): Database.Database {
-  if (!db) {
-    db = new Database(DB_PATH);
-    db.pragma("journal_mode = WAL");
-    initTables(db);
+export function getSql() {
+  if (!sql) {
+    const dbUrl = process.env.DATABASE_URL;
+    if (!dbUrl) throw new Error("DATABASE_URL environment variable is required");
+    sql = postgres(dbUrl, { max: 10 });
   }
-  return db;
+  return sql;
 }
 
-function initTables(db: Database.Database) {
-  db.exec(`
+export async function initDb() {
+  const s = getSql();
+  await s.unsafe(`
     CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       username TEXT UNIQUE NOT NULL,
       password_hash TEXT NOT NULL,
       role TEXT DEFAULT 'editor',
-      created_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW()
     );
 
     CREATE TABLE IF NOT EXISTS news (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       title_ru TEXT NOT NULL,
       title_kg TEXT,
       title_en TEXT,
@@ -36,12 +34,12 @@ function initTables(db: Database.Database) {
       content_kg TEXT,
       content_en TEXT,
       status TEXT DEFAULT 'draft',
-      created_at TEXT DEFAULT (datetime('now')),
-      updated_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
     );
 
     CREATE TABLE IF NOT EXISTS documents (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       title_ru TEXT NOT NULL,
       title_kg TEXT,
       title_en TEXT,
@@ -49,11 +47,11 @@ function initTables(db: Database.Database) {
       description_ru TEXT,
       file_url TEXT,
       published_date TEXT,
-      created_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW()
     );
 
     CREATE TABLE IF NOT EXISTS services (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       title_ru TEXT NOT NULL,
       title_kg TEXT,
       title_en TEXT,
@@ -63,11 +61,11 @@ function initTables(db: Database.Database) {
       icon TEXT DEFAULT 'filecheck',
       price_ru TEXT,
       sort_order INTEGER DEFAULT 0,
-      created_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW()
     );
 
     CREATE TABLE IF NOT EXISTS faq (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       question_ru TEXT NOT NULL,
       question_kg TEXT,
       question_en TEXT,
@@ -75,20 +73,32 @@ function initTables(db: Database.Database) {
       answer_kg TEXT,
       answer_en TEXT,
       sort_order INTEGER DEFAULT 0,
-      created_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW()
     );
 
     CREATE TABLE IF NOT EXISTS feedback (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       phone TEXT,
       message TEXT NOT NULL,
       status TEXT DEFAULT 'new',
-      created_at TEXT DEFAULT (datetime('now'))
+      created_at TIMESTAMP DEFAULT NOW()
     );
 
-    INSERT OR IGNORE INTO users (username, password_hash, role)
-    VALUES ('admin', '$2b$10$JRZ24mHjf79jjnwdplybv.gYDRzlWbixfkQzRxnEg3noOkSkXc8Sy', 'admin');
+    CREATE TABLE IF NOT EXISTS laboratories (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      address TEXT NOT NULL,
+      phone TEXT DEFAULT '',
+      hours TEXT DEFAULT 'Пн–Пт: 09:00–18:00',
+      coords TEXT NOT NULL,
+      sort_order INTEGER DEFAULT 0,
+      created_at TIMESTAMP DEFAULT NOW()
+    );
+
+    INSERT INTO users (username, password_hash, role)
+    VALUES ('admin', '$2b$10$JRZ24mHjf79jjnwdplybv.gYDRzlWbixfkQzRxnEg3noOkSkXc8Sy', 'admin')
+    ON CONFLICT (username) DO NOTHING;
   `);
 }

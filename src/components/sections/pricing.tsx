@@ -7,21 +7,19 @@ import { Link } from "@/lib/routing";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import type { ServiceItem } from "@/lib/data";
 
-const priceItems = [
-  { service: "Выдача СБКТС (для физических лиц)", price: "по запросу", unit: "услуга" },
-  { service: "Выдача СБКТС (для юридических лиц)", price: "по запросу", unit: "услуга" },
-  { service: "Техническая экспертиза ТС", price: "по запросу", unit: "услуга" },
-  { service: "Испытания тормозных систем", price: "по запросу", unit: "ось" },
-  { service: "Проверка световых приборов", price: "по запросу", unit: "услуга" },
-  { service: "Проверка экологичности (CO/CH)", price: "по запросу", unit: "услуга" },
-  { service: "Идентификация ТС", price: "по запросу", unit: "услуга" },
-  { service: "Консультация специалиста", price: "бесплатно", unit: "" },
-];
-
-export function PricingSection() {
+export function PricingSection({ services }: { services: ServiceItem[] }) {
   const t = useTranslations("home.pricing");
   const ct = useTranslations("common");
+
+  const items = services.map((s) => ({
+    service: s.title,
+    price: s.price || "по запросу",
+    unit: s.price ? "услуга" : "",
+  }));
+
+  if (items.length === 0) return null;
 
   return (
     <Section>
@@ -41,7 +39,7 @@ export function PricingSection() {
               </tr>
             </thead>
             <tbody>
-              {priceItems.map((item, i) => (
+              {items.map((item, i) => (
                 <tr
                   key={i}
                   className="border-b border-muted hover:bg-muted/30 transition-colors"

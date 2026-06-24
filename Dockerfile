@@ -4,11 +4,6 @@ FROM node:20-slim AS builder
 # Install pnpm
 RUN npm install -g pnpm@9
 
-# Install native build dependencies for better-sqlite3
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 make gcc g++ \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 # Copy package files first for better caching

@@ -8,11 +8,17 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { motion } from "framer-motion";
+import type { ServiceItem } from "@/lib/data";
 
-const icons = [FileCheck, ClipboardCheck, Wrench, MessageCircle];
-const cardKeys = ["sbkts", "expertise", "testing", "consulting"];
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  filecheck: FileCheck,
+  clipboardcheck: ClipboardCheck,
+  wrench: Wrench,
+  messagecircle: MessageCircle,
+};
+const fallbackIcons = [FileCheck, ClipboardCheck, Wrench, MessageCircle];
 
-export function ServicesSection() {
+export function ServicesSection({ services }: { services: ServiceItem[] }) {
   const t = useTranslations("home.services");
 
   return (
@@ -36,12 +42,11 @@ export function ServicesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cardKeys.map((key, i) => {
-            const Icon = icons[i];
-            const card = t.raw(`cards.${key}`) as { title: string; description: string };
+          {services.slice(0, 4).map((svc, i) => {
+            const Icon = iconMap[svc.icon.toLowerCase()] || fallbackIcons[i % fallbackIcons.length];
             return (
               <motion.div
-                key={key}
+                key={svc.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -51,9 +56,9 @@ export function ServicesSection() {
                   <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
                     <Icon className="h-7 w-7 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 tracking-tight">{card.title}</h3>
+                  <h3 className="text-lg font-semibold mb-3 tracking-tight">{svc.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
+                    {svc.description}
                   </p>
                   <div className="mt-6 flex items-center text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
                     Подробнее
