@@ -56,11 +56,11 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
                   <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
                     <Icon className="h-7 w-7 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 tracking-tight">{svc.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <h3 className="text-xl font-semibold mb-3 tracking-tight">{svc.title}</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {svc.description}
                   </p>
-                  <div className="mt-6 flex items-center text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+                  <div className="mt-6 flex items-center text-base font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
                     Подробнее
                     <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
