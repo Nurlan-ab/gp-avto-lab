@@ -1,0 +1,16 @@
+node_modules
+.git
+.gitignore
+.next
+*.md
+.env
+.env.local
+.env.*.local
+data.db
+data.db-wal
+data.db-shm
+payload.db
+*.log
+.hermes
+railway.json
+nixpacks.toml
