@@ -25,6 +25,9 @@ export function FeedbackSection() {
     setSending(false);
   };
 
+  const inputClass = "flex-1 bg-transparent text-sm placeholder:text-muted-foreground/60 focus:outline-none";
+  const wrapperClass = "flex items-center gap-3 h-12 px-4 rounded-xl border border-border bg-white focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:border-blue-500 transition-all";
+
   return (
     <Section>
       <Container>
@@ -42,43 +45,23 @@ export function FeedbackSection() {
               <p className="text-sm text-emerald-600">{t("successMessage")}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="relative">
-                <User className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground" />
-                <input
-                  name="name"
-                  required
-                  placeholder={ct("name")}
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
-                />
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className={wrapperClass}>
+                <User className="h-5 w-5 text-muted-foreground shrink-0" />
+                <input name="name" required placeholder={ct("name")} className={inputClass} />
               </div>
-              <div className="relative">
-                <Mail className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground" />
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="Email"
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
-                />
+              <div className={wrapperClass}>
+                <Mail className="h-5 w-5 text-muted-foreground shrink-0" />
+                <input name="email" type="email" required placeholder="Email" className={inputClass} />
               </div>
-              <div className="relative">
-                <Phone className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground" />
-                <input
-                  name="phone"
-                  placeholder={ct("phone")}
-                  className="w-full h-12 pl-11 pr-4 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
-                />
+              <div className={wrapperClass}>
+                <Phone className="h-5 w-5 text-muted-foreground shrink-0" />
+                <input name="phone" placeholder={ct("phone")} className={inputClass} />
               </div>
-              <div className="relative">
-                <MessageSquare className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground" />
-                <textarea
-                  name="message"
-                  required
-                  rows={4}
-                  placeholder={ct("message")}
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 resize-none"
-                />
+              <div className="flex items-start gap-3 px-4 py-3 rounded-xl border border-border bg-white focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:border-blue-500 transition-all">
+                <MessageSquare className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                <textarea name="message" required rows={4} placeholder={ct("message")}
+                  className="flex-1 bg-transparent text-sm placeholder:text-muted-foreground/60 focus:outline-none resize-none" />
               </div>
               <button
                 type="submit"
