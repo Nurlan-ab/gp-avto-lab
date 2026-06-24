@@ -6,7 +6,7 @@ export function getSql() {
   if (!sql) {
     const dbUrl = process.env.DATABASE_URL;
     if (!dbUrl) throw new Error("DATABASE_URL environment variable is required");
-    sql = postgres(dbUrl, { max: 10 });
+    sql = postgres(dbUrl, { max: 10, connection: { application_name: "gp-avto-lab" } });
   }
   return sql;
 }
@@ -45,6 +45,8 @@ export async function initDb() {
       title_en TEXT,
       category TEXT NOT NULL,
       description_ru TEXT,
+      description_kg TEXT,
+      description_en TEXT,
       file_url TEXT,
       published_date TEXT,
       created_at TIMESTAMP DEFAULT NOW()
